@@ -1,0 +1,11 @@
+#summary One-sentence summary of this page.
+
+= Znalezione projekty w sieci=
+
+Zawsze zamieszczam ciekawe projekty innych często można się na nich wzorować żeby nie wymyślać koła od nowa
+
+
+= Strony =
+
+strony dotyczace przerabiania aut sterowanych RC:
+  * [http://uzzors2k.4hv.org/index.php?page=blucar]
