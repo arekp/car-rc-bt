@@ -21,18 +21,22 @@ int prawo = 3;
 int przod = 4;
 int tyl = 5;
 
+int predkosc1 = 5; 
+int predkosc2 = 4; 
+
 int czulosc=1;
+ int inChar;
 
 float x = 0;
 float y = 0;
 
 void setup()  
 {
-  //ustawiamy na 9600 bo tak działa nasz BT
+  //ustawiamy na 9600 bo tak dziaĹa nasz BT
   Serial.begin(9600); 
 
   // rejestrujemy funkcje odbierajaca komunikacje z telefonu na kanale A przy pomocy pluginu amarino sensory
-  meetAndroid.registerFunction(car, 'A');  
+ // meetAndroid.registerFunction(car, 'A');  
 
   pinMode(onboardLed, OUTPUT);
   pinMode(lewo, OUTPUT);
@@ -40,17 +44,45 @@ void setup()
   pinMode(przod, OUTPUT);
   pinMode(tyl, OUTPUT);
 
+  pinMode(predkosc1, OUTPUT); 
+  pinMode(predkosc2, OUTPUT); 
+  
   digitalWrite(onboardLed, LOW);
   digitalWrite(lewo, LOW);
   digitalWrite(prawo, LOW);
   digitalWrite(przod, LOW);
   digitalWrite(tyl, LOW);
-
+  analogWrite(predkosc1, 100);
+    analogWrite(predkosc2, 100);
 }
 
 void loop()
 {
-  meetAndroid.receive(); // odbieranie 
+//  meetAndroid.receive(); // odbieranie 
+if (Serial.available() > 0) {
+    int inByte = Serial.read();
+    switch (inByte) {
+    case '1':    
+    {Serial.println(inByte);
+       strowanie(2,0);
+       analogWrite(predkosc2, 200);
+      break;
+    }
+    case '2':    
+    {Serial.println("inByte");
+       analogWrite(predkosc2, 100);
+      strowanie(-2,0);
+      break;
+    }
+
+    case '3':    
+      strowanie(0,0);
+      break;
+    default:
+      strowanie(0,0);
+    }
+  }
+  
 }
 
 
@@ -124,5 +156,6 @@ void flushLed(int time)
   delay(time);
   digitalWrite(onboardLed, HIGH);
 }
+
 
 
