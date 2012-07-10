@@ -9,4 +9,4 @@ Zawsze zamieszczam ciekawe projekty innych często można się na nich wzorować
 
 strony dotyczace przerabiania aut sterowanych RC:
   * [http://uzzors2k.4hv.org/index.php?page=blucar]
-  * Jak zaprogramować ATTINY2313 za pomocą arduino [http://www.ernstc.dk/arduino/2313.htm]
+  * Jak zaprogramować ATTINY2313 za pomocą arduino [http://www.ernstc.dk/arduino/2313.htm] i sterowniki [http://code.google.com/p/arduino-tiny/]
