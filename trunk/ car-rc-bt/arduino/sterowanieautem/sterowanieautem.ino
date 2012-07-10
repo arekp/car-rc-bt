@@ -32,11 +32,11 @@ float y = 0;
 
 void setup()  
 {
-  //ustawiamy na 9600 bo tak dziaĹa nasz BT
+  //  ustawiamy na 9600 bo tak dziaĹa nasz BT
   Serial.begin(9600); 
 
   // rejestrujemy funkcje odbierajaca komunikacje z telefonu na kanale A przy pomocy pluginu amarino sensory
- // meetAndroid.registerFunction(car, 'A');  
+  meetAndroid.registerFunction(car, 'A');  
 
   pinMode(onboardLed, OUTPUT);
   pinMode(lewo, OUTPUT);
@@ -58,31 +58,31 @@ void setup()
 
 void loop()
 {
-//  meetAndroid.receive(); // odbieranie 
-if (Serial.available() > 0) {
-    int inByte = Serial.read();
-    switch (inByte) {
-    case '1':    
-    {Serial.println(inByte);
-       strowanie(2,0);
-       analogWrite(predkosc2, 200);
-      break;
-    }
-    case '2':    
-    {Serial.println("inByte");
-       analogWrite(predkosc2, 100);
-      strowanie(-2,0);
-      break;
-    }
-
-    case '3':    
-      strowanie(0,0);
-      break;
-    default:
-      strowanie(0,0);
-    }
-  }
+  meetAndroid.receive(); // odbieranie 
   
+//if (Serial.available() > 0) {
+//    int inByte = Serial.read();
+//    switch (inByte) {
+//    case '1':    
+//    {Serial.println(inByte);
+//       strowanie(2,0);
+      // analogWrite(predkosc2, 200);
+ //     break;
+ //   }
+ //   case '2':    
+ //   {Serial.println("inByte");
+     //  analogWrite(predkosc2, 100);
+ //     strowanie(-2,0);
+ //     break;
+ //   }
+
+ //   case '3':    
+ //     strowanie(0,0);
+ //     break;
+ //   default:
+ //     strowanie(0,0);
+ //   }
+ // }
 }
 
 
@@ -113,38 +113,40 @@ void strowanie(float x, float y)
   {
     digitalWrite(przod, HIGH);
     digitalWrite(tyl, LOW);
-
-
+    analogWrite(predkosc1, (x * 28));
   }
-  else if (x < czulosc)
+  else if (x < (czulosc * -1))
   { 
     // flushLed(3);
     digitalWrite(przod, LOW);
     digitalWrite(tyl, HIGH);
-
+    analogWrite(predkosc1, ((x * -1) * 28));
   }
   else 
   { 
     digitalWrite(przod, LOW);
     digitalWrite(tyl, LOW);
+    analogWrite(predkosc1, 0);
  meetAndroid.send("silnik kirunku stoi");
   }
 
-  if (y < czulosc)
+  if (y < (czulosc* -1))
   {
     digitalWrite(lewo, HIGH);
     digitalWrite(prawo, LOW);
-
+    analogWrite(predkosc2, ((y * -1) * 28));
   }
   else if (y > czulosc)
   { 
     digitalWrite(lewo, LOW);
     digitalWrite(prawo, HIGH);
+        analogWrite(predkosc2, (y * 28));
   }
   else 
   { 
     digitalWrite(lewo, LOW);
     digitalWrite(prawo, LOW);
+        analogWrite(predkosc2, 0);
      meetAndroid.send("silnik ruchu stoi");
   }
 
