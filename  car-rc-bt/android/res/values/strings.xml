@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, Car_controlActivity!</string>
+    <string name="app_name">Car-control</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="device_address">Ustaw BT Device Address</string>
+    <string name="set_device_address">Proszę wpisz adres Bluetooth z modułu Arduino.</string>
+    <string name="device_address_format_error">Adres wymaga odowiedniego formatu: xx:xx:xx:xx:xx:xx\n\ne.g. 00:06:66:03:73:7B</string>
+        
+</resources>
