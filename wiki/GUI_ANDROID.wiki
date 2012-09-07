@@ -2,7 +2,7 @@
 
 = Start =
 
-Sterowanie samochodem odbywać się będzie za pomocą akcelerometrów telefonu. na ekranie w orientacji poziomej zostaną umieszczone dwa suwaki sterujące prędkością silników jak i dwa przyciski odpowiedzialne za włączanie świateł.   
+Sterowanie samochodem odbywać się będzie za pomocą akcelerometrów telefonu. na ekranie w orientacji poziomej zostaną umieszczone dwa suwaki sterujące prędkością silników(lub prędkości może sterować kąt wychylenia telefonu) jak i dwa przyciski odpowiedzialne za włączanie świateł.   
 
 Do sterowania wykorzystana zostanie biblioteka amarino. 
 
