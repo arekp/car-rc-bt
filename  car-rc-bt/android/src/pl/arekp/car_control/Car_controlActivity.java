@@ -25,6 +25,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import at.abraxas.amarino.Amarino;
@@ -48,13 +49,16 @@ public class Car_controlActivity extends Activity implements
 	private TextView textViewY;
 	private TextView textViewZ;
 	private RatingBar predkosc;
+	
+	private SeekBar suwak;
 
-	private DrawView draw;
+ private LicznikView licznik;
 
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
+		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -68,7 +72,10 @@ public class Car_controlActivity extends Activity implements
 		textViewY = (TextView) findViewById(R.id.textViewY);
 		textViewZ = (TextView) findViewById(R.id.textViewZ);
 		predkosc = (RatingBar) findViewById(R.id.ratingBar1);
-		draw =(DrawView)findViewById(R.id.radar);
+		suwak =(SeekBar)findViewById(R.id.seekBar1);
+		
+		licznik =(LicznikView) findViewById(R.id.Licznik);
+	
 	
 
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
