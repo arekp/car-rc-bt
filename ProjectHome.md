@@ -1,0 +1,1 @@
+Projekt ma na celu stworzenie sterowania czujnikami telefonu samochodów RC wykorzystując do tego BT i biblioteki amarino.
